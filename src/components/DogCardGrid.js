@@ -3,7 +3,7 @@ import DogCard from './DogCard';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-// display 
+// a fluid grid to display all dogs
 const DogCardGrid = ({ dogs }) => {
   return (
     <Container maxWidth='xl'>
