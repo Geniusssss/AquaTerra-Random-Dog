@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 // total number of displayed dogs
@@ -33,17 +33,16 @@ const useDogs = () => {
     return dogUrl;
   };
 
-  const getAllDogs = async () => {
+  const getAllDogs = useCallback(async () => {
     // fetch all dogs concurrently
     const dogPromises = Array(NUM_DOGS).fill().map(getOneDog);
     // wait for all Promises to resolve
     const newDogs = await Promise.all(dogPromises);
     setDogs(newDogs);
-  };
-
+  }, [])
   useEffect(() => {
     getAllDogs();
-  }, []);
+  }, [getAllDogs]);
 
   return { dogs, getAllDogs };
 };
