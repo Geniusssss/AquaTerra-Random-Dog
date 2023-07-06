@@ -8,10 +8,8 @@ import { styled } from '@mui/material/styles';
 // display a button and a specification
 const GenerateButton = ({ getAllDogs }) => {
 
-  console.log(getAllDogs);
-
   // restyled button
-  const LongButton = styled(Button)(({ }) => ({
+  const LongButton = styled(Button)(() => ({
     width: '50%',
   }));
 
